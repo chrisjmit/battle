@@ -9,11 +9,4 @@ feature "Testing infrastructure" do
     expect(page).to have_content "Sophie"
   end
 
-  # p feature "table flip a struggle" do
-  # p  scenario "submit 'Programming' as a struggle and see the table get flipped" do
-  # p    visit("/")
-  # p   fill_in :struggle, with: "Programming"
-  # p   click_button "Flip table"
-  # p     expect(page).to have_content "(Programming!!!)> (╯°□°）╯︵ ┻━┻"
-
 end
