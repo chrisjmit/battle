@@ -21,9 +21,12 @@ class Game
     @players.last
   end
 
-  def attack(player)
-    fail 'really?! you will lose' if player == turn?
-    player.receive_damage
+  def attack
+    if turn? == player_1
+      player_2.receive_damage
+    else 
+      player_1.receive_damage
+    end
     @turns += 1
   end
 
