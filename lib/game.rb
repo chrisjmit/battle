@@ -14,7 +14,7 @@ class Game
   end
 
   def player_1
-  @players.first
+    @players.first
   end
 
   def player_2
@@ -22,6 +22,7 @@ class Game
   end
 
   def attack(player)
+    fail 'really?! you will lose' if player == turn?
     player.receive_damage
     @turns += 1
   end

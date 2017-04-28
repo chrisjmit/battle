@@ -31,6 +31,13 @@ describe Game do
       game.attack(player_2)
       expect(game.turn?).to eq player_2
     end
+
+    it "cannot attack yourself" do
+      allow(player_2).to receive(:receive_damage)
+      allow(player_1).to receive(:receive_damage)
+      expect { game.attack(player_1) }.to raise_error 'really?! you will lose'
+    end
+
   end
 
 end
