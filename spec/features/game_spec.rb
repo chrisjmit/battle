@@ -14,4 +14,23 @@ describe Game do
       game.attack(player_2)
     end
   end
+
+  describe "turns" do
+    it "counts turns after attack" do
+      allow(player_2).to receive(:receive_damage)
+      game.attack(player_2)
+      expect(game.turns).to eq 1
+    end
+
+    it "starts on player_1's turn" do
+      expect(game.turn?).to eq player_1
+    end
+
+    it "switches between players every turn" do
+      allow(player_2).to receive(:receive_damage)
+      game.attack(player_2)
+      expect(game.turn?).to eq player_2
+    end
+  end
+
 end
