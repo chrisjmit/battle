@@ -24,7 +24,7 @@ class Game
   def attack
     if turn? == player_1
       player_2.receive_damage
-    else 
+    else
       player_1.receive_damage
     end
     @turns += 1

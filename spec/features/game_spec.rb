@@ -10,23 +10,18 @@ describe Game do
 
   describe "#attack" do
 
-    # it "damages the player" do
-    #   expect(player_2).to receive(:receive_damage)
-    #   game.attack(player_2)
-    # end
-
-    it "damages the other player and not yourself" do
+    it "damages player 2 on turn 1" do
       expect(player_2).to receive(:receive_damage)
       expect(player_1).to_not receive(:receive_damage)
       game.attack
     end
 
-    # it "cannot attack yourself" do
-    #   allow(player_2).to receive(:receive_damage)
-    #   allow(player_1).to receive(:receive_damage)
-    #   expect { game.attack(player_1) }.to raise_error 'really?! you will lose'
-    # end
-
+    it "damages player 1 on turn 2" do
+      allow(player_2).to receive(:receive_damage)
+      game.attack
+      expect(player_1).to receive(:receive_damage)
+      game.attack
+    end
   end
 
   describe "turns" do
