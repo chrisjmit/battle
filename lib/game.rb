@@ -9,8 +9,12 @@ class Game
     @turns = 0
   end
 
-  def turn?
+  def current_player
     @turns.even? ? player_1 : player_2
+  end
+
+  def current_opponent
+    @turns.odd? ? player_1 : player_2
   end
 
   def player_1
@@ -22,7 +26,7 @@ class Game
   end
 
   def attack
-    if turn? == player_1
+    if current_player == player_1
       player_2.receive_damage
     else
       player_1.receive_damage

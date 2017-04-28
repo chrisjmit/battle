@@ -32,14 +32,19 @@ describe Game do
     end
 
     it "starts on player_1's turn" do
-      expect(game.turn?).to eq player_1
+      expect(game.current_player).to eq player_1
     end
 
     it "switches between players every turn" do
       allow(player_2).to receive(:receive_damage)
       game.attack
-      expect(game.turn?).to eq player_2
+      expect(game.current_player).to eq player_2
     end
+
+    it "can return the current opponent" do
+      expect(game.current_opponent).to eq player_2
+    end
+
   end
 
 end
